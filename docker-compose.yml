@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+    db:
+        image: postgres:12.18
+        container_name: postgres_c
+#        restart: always
+        volumes:
+            - db-volume:/var/lib/postgresql/data/
+        environment:
+            POSTGRES_USER: db_user:test
+            POSTGRES_PASSWORD: db_password:test
+            POSTGRES_DB: db_name:test
+            POSTGRES_HOST: localhost
+            POSTGRES_PORT: 5434
+        expose:
+            - 5434
+        ports:
+            - "5434:5434"
+    app:
+        image: django_test:latest
+        container_name: app_c
+#        restart: always
+#        volumes:
+#            - ./app:/var/www/html
+        ports:
+            - 8080:80
+        depends_on:
+            - db
+
+volumes:
+    db-volume:

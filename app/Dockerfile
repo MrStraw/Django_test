@@ -1,5 +1,7 @@
 FROM python:3.12-slim
 
+LABEL version="alpha"
+
 # Empeche la générationd es fichiers .pyc dans le conteneur
 ENV PYTHONDONTWRITEBYTECODE=1
 # Turns off buffering for easier container logging (?)
