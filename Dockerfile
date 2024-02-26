@@ -1,11 +1,11 @@
 FROM python:3.12-slim
 
-LABEL version="alpha"
-
 # Empeche la générationd es fichiers .pyc dans le conteneur
 ENV PYTHONDONTWRITEBYTECODE=1
 # Turns off buffering for easier container logging (?)
 ENV PYTHONUNBUFFERED=1
+
+ENV IN_DOCKER = 1
 
 COPY Pipfile Pipfile.lock ./
 RUN python -m pip install --upgrade pip

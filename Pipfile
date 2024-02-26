@@ -4,8 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "5.0.2"
 setuptools = "*"
+django = "5.0.2"
+psycopg2-binary = {version="*", sys_platform="!='win32'"}
 
 [dev-packages]
 
