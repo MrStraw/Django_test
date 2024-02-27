@@ -29,5 +29,5 @@ jobs:
 
     - name: Push Docker image
       run: |
-        docker-compose push simonmetais/django_test
+        docker-compose push
         docker logout
