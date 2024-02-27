@@ -13,21 +13,21 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Build Django image
+      run: docker build -t django_test:latest .
+
+    - name: Tag Django image like github tag
+      run: |
+        TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
+        docker tag django_test:latest simonmetais/django_test:$TAG
+
     - name: Login to Docker Hub
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build Docker image
-      run: docker-compose build
-
-    - name: Tag docker image like github tag
-      run: |
-        TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
-        docker tag django_test:latest simonmetais/django_test:$TAG
-
     - name: Push Docker image
       run: |
-        docker-compose push
-        docker logout
+        docker push simonmetais/django_test:latest
+        docker push simonmetais/django_test:$TAG
