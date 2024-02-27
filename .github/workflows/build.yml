@@ -24,8 +24,9 @@ jobs:
 
     - name: Tag docker image like github tag
       run: |
+        IMAGE_NAME=django_test
         TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
-        docker tag django_test:latest simonmetais/django_test:$TAG
+        docker tag $IMAGE_NAME:latest $IMAGE_NAME:$TAG
 
     - name: Push Docker image
       run: |
