@@ -29,5 +29,5 @@ jobs:
 
     - name: Push Docker image
       run: |
-        docker push simonmetais/django_test:latest
+#        docker push simonmetais/django_test:latest
         docker push simonmetais/django_test:$TAG
