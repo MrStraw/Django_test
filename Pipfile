@@ -6,9 +6,11 @@ name = "pypi"
 [packages]
 setuptools = "*"
 django = "5.0.2"
-psycopg2-binary = {version="*", sys_platform="!='win32'"}
 
 [dev-packages]
+# PAS pour le dev, au contraire ! Pour la prod, mais pipenv ne propose pas [prod-packages]
+psycopg2-binary = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.12"
