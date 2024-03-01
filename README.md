@@ -1,2 +1,3 @@
-SECRET_KEY 
-DEBUG
+SECRET_KEY  
+DEBUG  
+deockercompose : build -> image  
