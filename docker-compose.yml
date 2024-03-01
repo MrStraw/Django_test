@@ -4,7 +4,7 @@ services:
 
     db:
         image: postgres:12.18
-        container_name: postgres_c
+        container_name: db_c
 #        restart: always
         volumes:
             - db-volume:/var/lib/postgresql/data/
@@ -14,14 +14,14 @@ services:
             POSTGRES_DB: db_name:test
 
     app:
-        image: simonmetais/django_test:latest
+#        image: simonmetais/django_test:latest
+        build:
+            context: .
         container_name: app_c
 #        restart: always
         volumes:
-            - static-data:/vol/static
-            - media-data:/vol/media
-        ports:
-            - "8000:8000"
+            - static-data:/app/static
+            - media-data:/app/media
         depends_on:
             - db
 
@@ -31,8 +31,8 @@ services:
 #        restart: always
         container_name: proxy_c
         volumes:
-            - static-data:/vol/static
-            - media-data:/vol/media
+            - static-data:/static
+            - media-data:/media
         ports:
             - "80:80"
         depends_on:

@@ -1,25 +1,20 @@
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+IN_DOCKER = bool(os.environ.get('IN_DOCKER'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-u^(!%8jhk*!@6^ljv8aw!zd$u_w%(s-x@i3mqy)$4g!vdm#l7-'
 
-DEBUG = False if os.environ.get('IN_DOCKER') else True
+# DEBUG = not IN_DOCKER
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',  # localhost
     '217.160.48.69',  # Serveur IONOS
 ]
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -62,20 +57,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'django_tests.wsgi.application'
 
 
-if os.environ.get('IN_DOCKER'):
-    print('IN DOCKER : PostgreSQL db settings')
+if IN_DOCKER:
     DATABASES = {
             "default": {
                 "ENGINE": "django.db.backends.postgresql",
                 "NAME": 'db_name:test',
                 "USER": 'db_user:test',
                 "PASSWORD": 'db_password:test',
-                "HOST": 'postgres_c',
+                "HOST": 'db_c',
                 # "PORT": 5432,
             }
         }
 else:
-    print('NOT IN DOCKER : SQLite db settings')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -118,9 +111,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'vol/static'
+STATIC_ROOT = BASE_DIR / 'static'
+# STATICFILES_DIRS = [BASE_DIR / 'vol/static']
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'vol/media'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

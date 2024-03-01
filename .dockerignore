@@ -4,4 +4,5 @@ __pycache__/
 README.md
 db.sqlite3
 .gitignore
-manage.py
+proxy
+.github

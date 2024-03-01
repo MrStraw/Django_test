@@ -6,10 +6,10 @@ name = "pypi"
 [packages]
 setuptools = "*"
 django = "5.0.2"
+Pillow = "*"  # Obligatoire pour gérer les fields Django de type ImageField
 
-[dev-packages]
-# PAS pour le dev, au contraire ! Pour la prod, mais pipenv ne propose pas [prod-packages]
-psycopg2-binary = "*"
+[dev-packages]  # PAS pour le dev, au contraire ! Pour la prod, mais pipenv ne propose pas [prod-packages]
+psycopg2-binary = "*"  # Pour PostgreSQL
 gunicorn = "*"
 
 [requires]
