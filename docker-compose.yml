@@ -5,7 +5,7 @@ services:
     db:
         image: postgres:12.18
         container_name: db_c
-#        restart: always
+        restart: always
         volumes:
             - db-volume:/var/lib/postgresql/data/
         environment:
@@ -18,7 +18,7 @@ services:
         build:
             context: .
         container_name: app_c
-#        restart: always
+        restart: always
         volumes:
             - static-data:/app/static
             - media-data:/app/media
@@ -28,7 +28,7 @@ services:
     proxy:
         build:
             context: ./proxy
-#        restart: always
+        restart: always
         container_name: proxy_c
         volumes:
             - static-data:/static

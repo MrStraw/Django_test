@@ -12,5 +12,7 @@ RUN touch /etc/nginx/conf.d/default.conf
 COPY ./proxy_params /etc/nginx/
 COPY ./default.conf.tpl /etc/nginx/
 
+EXPOSE 80
+
 RUN ["chmod", "+x", "/start.sh"]
 ENTRYPOINT ["sh", "-c", "/start.sh"]

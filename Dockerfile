@@ -17,7 +17,5 @@ RUN pip install pipenv && pipenv install --dev --system --deploy && pip list
 WORKDIR /app
 COPY . /app
 
-EXPOSE 8000
-
 RUN ["chmod", "+x", "./scripts/start.sh"]
 ENTRYPOINT ["sh", "-c", "./scripts/start.sh"]
