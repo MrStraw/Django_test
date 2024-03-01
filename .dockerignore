@@ -1,3 +1,7 @@
 .idea
 .env
 __pycache__/
+README.md
+db.sqlite3
+.gitignore
+manage.py

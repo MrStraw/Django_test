@@ -1,6 +1,7 @@
-version: '3.7'
+version: '3.8'
 
 services:
+
     db:
         image: postgres:12.18
         container_name: postgres_c
@@ -11,19 +12,33 @@ services:
             POSTGRES_USER: db_user:test
             POSTGRES_PASSWORD: db_password:test
             POSTGRES_DB: db_name:test
-    web:
-        depends_on:
-            - db
-        image: django_test:latest
-        build:
-            context: .
-            dockerfile: Dockerfile
-        container_name: web_c
+
+    app:
+        image: simonmetais/django_test:latest
+        container_name: app_c
 #        restart: always
-#        volumes:
-#            - ./app:/var/www/html
+        volumes:
+            - static-data:/vol/static
+            - media-data:/vol/media
         ports:
             - "8000:8000"
+        depends_on:
+            - db
+
+    proxy:
+        build:
+            context: ./proxy
+#        restart: always
+        container_name: proxy_c
+        volumes:
+            - static-data:/vol/static
+            - media-data:/vol/media
+        ports:
+            - "80:80"
+        depends_on:
+            - app
 
 volumes:
     db-volume:
+    static-data:
+    media-data:

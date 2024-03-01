@@ -1,2 +1,0 @@
-docker build -t django_test:latest -f docker_gestion/Dockerfile_Django .
-docker build -t django_test .
