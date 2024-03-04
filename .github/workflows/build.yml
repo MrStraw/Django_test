@@ -1,4 +1,4 @@
-name: Build and Deploy Docker Container
+name: Pull, compose down, and compose up on serv
 
 on:
   push:
