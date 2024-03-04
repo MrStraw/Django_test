@@ -10,13 +10,14 @@ class ProjetPagesAdmin(admin.TabularInline):
 
 @admin.register(Projet)
 class ProjetsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'ordre')
-    inlines = (ProjetPagesAdmin, )
+    fields = ('name', 'slug', 'description', 'image')
+    readonly_fields = ('slug',)
+
+    list_display = ('name', 'short_description', 'ordre',)
+    list_editable = ('ordre',)
+    list_display_links = ('name',)
     list_filter = ('name',)
     search_fields = ('name', 'description')
     ordering = ('ordre',)
 
-
-# @admin.register(PageProject)
-# class PagesAdmin(admin.ModelAdmin):
-#     list_display = ('projet', 'numero')
+    inlines = (ProjetPagesAdmin, )
