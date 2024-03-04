@@ -13,19 +13,14 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Build Django image
-      run: docker build -t django_test:latest .
-
-    - name: Login to Docker Hub
-      uses: docker/login-action@v3
+    - name: SSH into server and restart Docker Compose
+      uses: appleboy/ssh-action@master
       with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-    - name: Push Docker image as latest AND tag version
-      run: |
-        docker tag django_test:latest simonmetais/django_test:latest
-        docker push simonmetais/django_test:latest
-        TAG=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
-        docker tag django_test:latest simonmetais/django_test:$TAG
-        docker push simonmetais/django_test:$TAG
+        host: ${{ secrets.SERV_HOST }}
+        username: ${{ secrets.SERV_USERNAME }}
+        password: ${{ secrets.SERV_PASSWORD }}
+        script: |
+          cd prod/Django_test/
+          git pull
+          docker-compose down
+          docker-compose up -d
