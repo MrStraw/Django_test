@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+<h1>Les projets</h1>
+
+{% for projet in projets %}
+    <a href="{{ projet.get_absolute_url }}">
+        <h2>{{ projet.name }}</h2>
+    </a>
+    <p>{{ projet.description }}</p>
+    <img src="{{ projet.image.url }}" alt="{{ projet.name }}" style="max-width: 250px;">
+{% endfor %}
+
+{% endblock %}

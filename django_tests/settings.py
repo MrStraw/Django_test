@@ -13,6 +13,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',  # localhost
+    'localhost',
     '217.160.48.69',  # Serveur IONOS
 ]
 
@@ -23,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'portfolio'
 ]
 
