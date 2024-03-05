@@ -4,15 +4,12 @@ FROM python:3.12-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 # S'assure que les print() sois affichés instantanement dans le terminal
 ENV PYTHONUNBUFFERED=1
-
 ENV IN_DOCKER = 1
 
 COPY Pipfile Pipfile.lock ./
 RUN python -m pip install --upgrade pip
-# --dev pour installer les lib sous la balise [dev-packages] du Pipfile
-# --system pour installer les lib dans le docker et non dans un env virtuel
-# --deploy pour suivre le pipfile.Lock et ainsi s'assurer que les versions sont à jour et stables
-RUN pip install pipenv && pipenv install --dev --system --deploy && pip list
+RUN pip install pipenv && pipenv install --dev --system --deploy --clear
+RUN pip uninstall virtualenv -y && pip uninstall pipenv -y
 
 WORKDIR /app
 COPY . /app

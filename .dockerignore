@@ -1,8 +1,9 @@
-.idea
-.env
+**
 __pycache__/
-README.md
-db.sqlite3
-.gitignore
-proxy
-.github
+
+!scripts
+!django_tests
+!portfolio
+!manage.py
+!Pipfile
+!Pipfile.lock
