@@ -10,7 +10,7 @@ class ProjetPagesAdmin(admin.TabularInline):
 
 @admin.register(Projet)
 class ProjetsAdmin(admin.ModelAdmin):
-    fields = ('name', 'slug', 'description', 'image', 'ordre')
+    fields = ('name', 'slug', 'description', 'image')
     readonly_fields = ('slug',)
 
     list_display = ('name', 'short_description', 'ordre',)
