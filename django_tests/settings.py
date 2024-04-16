@@ -1,9 +1,10 @@
 import os
+import platform
 from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-IN_DOCKER = bool(os.environ.get('IN_DOCKER'))
+IN_DOCKER = platform.system() == 'Linux'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-u^(!%8jhk*!@6^ljv8aw!zd$u_w%(s-x@i3mqy)$4g!vdm#l7-'
