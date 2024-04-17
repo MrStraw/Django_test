@@ -8,10 +8,10 @@ setuptools = "*"
 django = "5.0.2"
 Pillow = "*"  # Obligatoire pour gérer les fields Django de type ImageField
 django-cleanup = "*"  # Gére les fields Django de type ImageField et co à la supression
+gunicorn = {version = "*", markers="sys_platform == 'linux'"}
+psycopg2-binary = {version = "*", markers="sys_platform == 'linux'"}
 
-[dev-packages]  # PAS pour le dev, au contraire ! Pour la prod, mais pipenv ne propose pas [prod-packages]
-psycopg2-binary = "*"  # Pour PostgreSQL
-gunicorn = "*"
+[dev-packages]
 
 [requires]
 python_version = "3.12"
