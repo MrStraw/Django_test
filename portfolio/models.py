@@ -8,9 +8,9 @@ from django.utils.text import slugify
 
 def get_upload_path(instance, filename):
     if isinstance(instance, Projet):
-        return Path('Projets', instance.slug, filename)
+        return Path('Projets', instance.slug, f'Couverture__{filename}')
     elif isinstance(instance, PageProject):
-        return Path('Projets', instance.projet.slug, filename)
+        return Path('Projets', instance.projet.slug, f'Page-{instance.ordre}__{filename}')
 
 
 class Projet(m.Model):
@@ -22,8 +22,13 @@ class Projet(m.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        self.ordre = len(Projet.objects.all()) + 1
+        if self.ordre is None:
+            self.ordre = len(Projet.objects.all()) + 1
         super().save()
+
+    @property
+    def is_visible(self) -> bool:
+        return bool(self.ordre)
 
     @property
     def short_description(self):
