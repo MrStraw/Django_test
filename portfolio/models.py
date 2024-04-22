@@ -44,6 +44,8 @@ class Projet(m.Model):
 class PageProject(m.Model):
     projet = m.ForeignKey(Projet, on_delete=m.CASCADE, related_name='Pages')
     ordre = m.PositiveIntegerField()
+    titre = m.CharField(max_length=50)
+    sous_titre = m.CharField(max_length=50)
     description = m.TextField()
     image = m.ImageField(upload_to=get_upload_path, blank=True, null=True)
 

@@ -13,9 +13,10 @@ SECRET_KEY = 'django-insecure-u^(!%8jhk*!@6^ljv8aw!zd$u_w%(s-x@i3mqy)$4g!vdm#l7-
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',  # localhost
-    'localhost',
-    '217.160.48.69',  # Serveur IONOS
+    '*'
+    # '127.0.0.1',  # localhost
+    # 'localhost',
+    # '217.160.48.69',  # Serveur IONOS
 ]
 
 INSTALLED_APPS = [
