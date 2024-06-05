@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/projet.css' %}">  {# Pour ancrer la section #}
+<link rel="stylesheet" href="{% static 'css/projet.css' %}">
 {% endblock %}
 
 {%  block content %}
 {% for page in pages %}
-<section id="{{ page.titre }}-{{ page.sous_titre }}">
+<section id="{{ page.titre }}-{{ page.sous_titre }}">  {# Pour ancrer la section #}
     <h1>{{ page.titre }}</h1>
     <h2>{{ page.sous_titre }}</h2>
     {# <p>{{ page }}</p> #}

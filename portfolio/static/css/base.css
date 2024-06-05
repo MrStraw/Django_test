@@ -1,4 +1,33 @@
-p
-{
-    color:#5e9f82;
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.nav-bar {
+    position: absolute;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-bar a {
+    color: blue;
+}
+
+.nav-bar .logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: red;
+}
+
+.nav-bar .nav-links {
+    display: flex
+}
+
+.nav-bar .nav-links li {
+    margin: 0 25px;
 }
