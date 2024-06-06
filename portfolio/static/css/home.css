@@ -1,6 +1,7 @@
 html, .scrolling-projects {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 section, .project {
