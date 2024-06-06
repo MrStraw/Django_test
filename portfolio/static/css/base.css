@@ -3,31 +3,41 @@
     padding: 0;
     text-decoration: none;
     list-style: none;
+    font-family:  "DM Sans", sans-serif;
+    background-color: #FBFEF2;
 }
 
-.nav-bar {
-    position: absolute;
-    padding: 50px;
+header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 85%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box;
+    padding: 33px 9%;
+}
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+}
+.nav-list {
+    display: flex;
+}
+.nav-list a {
+    color: black;
+    margin-left: 60px;
+    font-size: 21px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.55s ease;
+}
+.nav-list a:hover {
+    border-bottom: 2px solid black;
 }
 
-.nav-bar a {
-    color: blue;
-}
-
-.nav-bar .logo {
-    font-size: 2em;
-    font-weight: bold;
-    color: red;
-}
-
-.nav-bar .nav-links {
-    display: flex
-}
-
-.nav-bar .nav-links li {
-    margin: 0 25px;
+#projets {
+    min-height: 100vh;
 }

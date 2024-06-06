@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" />
+{% endblock %}
+
+{%  block content %}
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <h1>Bonjour, ici Marie :)</h1>
+        <h2>Dans mon quotidien je concilie design de services, d’UX/UI et de produit pour concevoir et améliorer l’expérience utilisateur qu’elle soit vécue en interne par les collaborateurs ou en externe par les clients.</h2>
+        <p>En tant que designer, je tâche de créer des expériences dont l’impact est le plus positif possible, pour les Hommes et la planète.</p>
+    </div>
+    <span class="hero-img">
+        <img src="{% static 'img/bonyour.png' %}">
+    </span>
+</section>
+
+<div class="scroll-down">
+    <a href="{% url 'projets' %}"><i class="ri-arrow-down-line"></i></a>
+</div>
+
+<section class="scrolling-projects" id="projets">
+{% for projet in projets %}
+    <div class="project">
+        <div>
+            <a href="{{ projet.get_absolute_url }}">
+                <h2>{{ projet.name }}</h2>
+            </a>
+            <p>{{ projet.description }}</p>
+        </div>
+        <span>
+            <img src="{{ projet.image.url }}" alt="{{ projet.name }}" style="max-width: 250px;">
+        </span>
+    </div>
+{% endfor %}
+</section>
+
+{% endblock %}

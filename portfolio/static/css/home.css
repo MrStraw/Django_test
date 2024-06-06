@@ -1,0 +1,72 @@
+html, .scrolling-projects {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+section, .project {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 19%;
+    width: 1000px;
+}
+.hero-text {
+    order : 2;
+}
+.hero-text h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin: 0 0 45px;
+}
+.hero-text h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 30px;
+}
+.hero-text p {
+    font-size: 18px;
+    font-weight: 400;
+}
+.hero-img img {
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20%;
+    left: 18%;
+}
+.scroll-down i {
+    display: block;
+    font-size: 55px;
+    transition: all 0.5s ease;
+    color: black;
+}
+.scroll-down i:hover {
+    transform: translateY(7px);
+}
+
+.scrolling-projects {
+    background: red;
+    display: block;
+    width: 100%;
+    height: 50vh;
+    overflow-y: scroll;
+}
+.project {
+    background: transparent;
+    min-height: 70vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 19%;
+}

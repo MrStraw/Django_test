@@ -1,11 +1,16 @@
 from django.http import HttpResponseNotFound, Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from portfolio.models import Projet
 
 
-def projets_index(request):
+def home(request):
     projets = Projet.objects.filter(ordre__gt=0).order_by('ordre')
-    return render(request, 'projets.html', context={'projets': projets})
+    return render(request, 'home.html', context={'projets': projets})
+
+
+def projets_index(request):
+    response = redirect('/#projets')
+    return response
 
 
 def projets_details(request, slug):

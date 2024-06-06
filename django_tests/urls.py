@@ -3,10 +3,10 @@ from django.contrib import admin
 from django.urls import path
 
 from django_tests import settings
-from portfolio.views import accueil, projets_index, projets_details
+from portfolio.views import home, projets_index, projets_details
 
 urlpatterns = [
-    path('', accueil, name='accueil'),
+    path('', home, name='home'),
     path('projets/', projets_index, name='projets'),
     path('projets/<str:slug>/', projets_details, name='projet'),
     path('admin/', admin.site.urls),
