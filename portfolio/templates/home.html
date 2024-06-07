@@ -20,22 +20,24 @@
 </section>
 
 <div class="scroll-down">
-    <a href="{% url 'projets' %}"><i class="ri-arrow-down-line"></i></a>
+    <a href="#projets"><i class="ri-arrow-down-line"></i></a>
 </div>
 
-<section class="scrolling-projects" id="projets">
 {% for projet in projets %}
-    <div class="project">
-        <div>
-            <a href="{{ projet.get_absolute_url }}">
-                <h2>{{ projet.name }}</h2>
-            </a>
-            <p>{{ projet.description }}</p>
-        </div>
-        <span>
-            <img src="{{ projet.image.url }}" alt="{{ projet.name }}">
-        </span>
+{% if forloop.first %}
+<section class="project" id="projets">
+{% else %}
+<section class="project">
+{% endif %}
+    <div>
+        <h1>{{ projet.ordre|stringformat:"02d" }} / {{ projet.name }}</h1>
+        <p>{{ projet.description }}</p>
+        <a href="{{ projet.get_absolute_url }}">Voir le projet <i class="ri-arrow-right-line"></i></a>
     </div>
+    <span>
+        <img src="{{ projet.image.url }}" alt="{{ projet.name }}">
+    </span>
+</section>
 {% endfor %}
 </section>
 
