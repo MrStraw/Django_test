@@ -7,13 +7,16 @@
 
 {%  block content %}
 {% for page in pages %}
-<section id="{{ page.titre }}-{{ page.sous_titre }}">  {# Pour ancrer la section #}
-    <h1>{{ page.titre }}</h1>
-    <h2>{{ page.sous_titre }}</h2>
-    {# <p>{{ page }}</p> #}
-    {# <p>{{ page.description }}</p> #}
+<section>
+    <div>
+        <h1>{{ page.titre }}</h1>
+        <h2>{{ page.sous_titre }}</h2>
+        <p>{% lorem %}</p>
+    </div>
     {% if page.image %}
+    <span>
         <img src="{{ page.image.url }}" style="max-width: 500px;">
+    </span>
     {% endif %}
 </section>
 {% endfor %}

@@ -1,32 +1,40 @@
-html, body, section {
-  block-size: 100%;
-}
-
-html {
-  scroll-snap-type: y mandatory;
-}
-
 section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+    height: 100vh;
+    margin: 5% 10%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+section span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
 }
 
-section:nth-of-type(even) {
-  color: white;
-  background: black;
+
+
+
+
+
+
+
+
+
+section span img {
+  animation: fly-in linear both;
+  animation-timeline: view(block);
+  animation-range: cover 0% cover 100%;
 }
 
-section:nth-of-type(odd) {
-  color: black;
-  background: white;
-}
-
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  font-size: 4rem;
+@keyframes fly-in {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
