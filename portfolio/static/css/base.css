@@ -4,6 +4,8 @@
     text-decoration: none;
     list-style: none;
     font-family:  "DM Sans", sans-serif;
+}
+body {
     background-color: #FBFEF2;
 }
 
@@ -17,6 +19,9 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 33px 9%;
+    background: transparent;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); /* Support pour Safari */
 }
 .logo {
     font-size: 24px;
@@ -43,5 +48,5 @@ main {
 }
 
 *::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
 }

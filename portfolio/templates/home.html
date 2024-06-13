@@ -25,6 +25,7 @@
 
 {% for projet in projets %}
 {% if forloop.first %}
+<hr>
 <section class="project" id="projets">
 {% else %}
 <section class="project">
@@ -38,6 +39,7 @@
         <img src="{{ projet.image.url }}" alt="{{ projet.name }}">
     </span>
 </section>
+<hr>
 {% endfor %}
 </section>
 

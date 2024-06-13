@@ -3,11 +3,11 @@ html, .scrolling-projects {
     scroll-behavior: smooth;
 }
 section {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     scroll-snap-stop: always;
 
-    margin: 5%;
-    height: 100vh;
+    margin: 4% 12% 4%;
+    height: 45vh;
     position: relative;
 
     display: flex;
@@ -15,6 +15,9 @@ section {
     align-items: center;
 }
 
+.hero {
+    height: 100vh;
+}
 .hero-text {
     width: 35%;
     order : 2;
@@ -50,11 +53,8 @@ section {
     transform: translateY(20px);
 }
 
-.projet {
-    height: 30vh;
-}
 .project div {
-    width: 40%;
+    width: 25%;
 }
 .project div h1, a {
     font-family:  "Inter", sans-serif;
@@ -70,9 +70,31 @@ section {
     padding-bottom: 4%;
 }
 .project div a {
-    font-weight: 500;
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: underline;
+    color: black;
+    transition: all 0.5s ease;
+}
+.project div a:hover {
+    transform: translateX(10px);
+}
+
+.project span {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .project span img {
-    max-width: 30em;
-    max-height: 30em;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+hr {
+    width:80%;
+    margin: auto;
+    height: 3px;
+    background: black;
 }
